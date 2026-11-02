@@ -2,6 +2,7 @@
 
 namespace App\Http\Responses;
 
+use App\Models\User;
 use Filament\Auth\Http\Responses\Contracts\LoginResponse as Responsable;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Features\SupportRedirects\Redirector;
@@ -14,9 +15,9 @@ class LoginResponse implements Responsable
      * - Guru  -> /guru
      * - Murid -> /murid
      */
-    public function toResponse($request): RedirectResponse | Redirector
+    public function toResponse($request): RedirectResponse|Redirector
     {
-        /** @var \App\Models\User|null $user */
+        /** @var User|null $user */
         $user = auth()->user();
 
         if ($user?->isAdmin()) {
@@ -34,4 +35,3 @@ class LoginResponse implements Responsable
         return redirect()->intended('/');
     }
 }
-

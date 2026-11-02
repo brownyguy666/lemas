@@ -8,17 +8,17 @@ use Illuminate\Contracts\Support\Htmlable;
 
 class Login extends BaseLogin
 {
-    public function getTitle(): string | Htmlable
+    public function getTitle(): string|Htmlable
     {
         return 'Masuk - LEMAS LMS Sekolah';
     }
 
-    public function getHeading(): string | Htmlable
+    public function getHeading(): string|Htmlable
     {
         return 'Masuk ke Akun Anda';
     }
 
-    public function getSubheading(): string | Htmlable | null
+    public function getSubheading(): string|Htmlable|null
     {
         return 'Gunakan akun Administrator, Guru, atau Murid Anda';
     }
@@ -33,4 +33,3 @@ class Login extends BaseLogin
         return method_exists($user, 'hasValidRole') && $user->hasValidRole();
     }
 }
-

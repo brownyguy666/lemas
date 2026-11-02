@@ -45,7 +45,7 @@ class AssignmentsTable
                         }
 
                         if ($sub->isGraded()) {
-                            return 'Sudah Dinilai (' . $sub->points . '/' . $record->max_points . ')';
+                            return 'Sudah Dinilai ('.$sub->points.'/'.$record->max_points.')';
                         }
 
                         return $sub->is_late ? 'Sudah Dikumpulkan (Terlambat)' : 'Sudah Dikumpulkan';
@@ -84,17 +84,20 @@ class AssignmentsTable
                 Action::make('submitAssignment')
                     ->label(function (Assignment $record): string {
                         $sub = $record->submissions->firstWhere('student_id', auth()->id());
+
                         return $sub ? 'Ubah Jawaban' : 'Kumpulkan Tugas';
                     })
                     ->icon('heroicon-o-arrow-up-tray')
                     ->color('primary')
                     ->visible(function (Assignment $record): bool {
                         $sub = $record->submissions->firstWhere('student_id', auth()->id());
+
                         return ! $sub || ! $sub->isGraded();
                     })
-                    ->modalHeading(fn (Assignment $record): string => 'Kumpulkan: ' . $record->title)
+                    ->modalHeading(fn (Assignment $record): string => 'Kumpulkan: '.$record->title)
                     ->fillForm(function (Assignment $record): array {
                         $sub = $record->submissions->firstWhere('student_id', auth()->id());
+
                         return [
                             'text_answer' => $sub?->text_answer,
                             'file_path' => $sub?->file_path,
@@ -156,11 +159,13 @@ class AssignmentsTable
                     ->color('success')
                     ->visible(function (Assignment $record): bool {
                         $sub = $record->submissions->firstWhere('student_id', auth()->id());
+
                         return $sub && $sub->isGraded();
                     })
-                    ->modalHeading(fn (Assignment $record): string => 'Nilai: ' . $record->title)
+                    ->modalHeading(fn (Assignment $record): string => 'Nilai: '.$record->title)
                     ->modalContent(function (Assignment $record) {
                         $sub = $record->submissions->firstWhere('student_id', auth()->id());
+
                         return view('filament.murid.grade-detail', ['submission' => $sub]);
                     })
                     ->modalSubmitAction(false)

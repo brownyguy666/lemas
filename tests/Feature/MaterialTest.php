@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Models\Classroom;
 use App\Models\Material;
 use App\Models\User;
 use Database\Seeders\DatabaseSeeder;

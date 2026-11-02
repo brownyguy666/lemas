@@ -22,3 +22,4 @@
         <p class="text-gray-500 text-center italic">Guru tidak menyematkan catatan tambahan.</p>
     @endif
 </div>
+

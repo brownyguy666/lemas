@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
 #[Fillable(['name', 'description', 'join_code', 'teacher_id', 'academic_year', 'is_active'])]
@@ -57,7 +58,7 @@ class Classroom extends Model
     /**
      * Materi pelajaran di kelas ini.
      */
-    public function materials(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function materials(): HasMany
     {
         return $this->hasMany(Material::class)->orderBy('order', 'asc');
     }
@@ -65,7 +66,7 @@ class Classroom extends Model
     /**
      * Tugas-tugas di kelas ini.
      */
-    public function assignments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function assignments(): HasMany
     {
         return $this->hasMany(Assignment::class)->orderBy('due_date', 'asc');
     }

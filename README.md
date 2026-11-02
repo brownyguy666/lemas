@@ -133,8 +133,15 @@ git push -u origin main
 
 ---
 
-## 🌐 Persiapan Deploy ke Server VPS (Produksi)
-Aplikasi ini sudah dipersiapkan agar mudah dipasang di server VPS Linux (Ubuntu/Debian):
-- File konfigurasi `.env.example` sudah disesuaikan dengan zona waktu Indonesia (`Asia/Jakarta`) dan bahasa Indonesia (`id`).
-- Konfigurasi database diatur agar secara otomatis menggunakan SQLite di laptop lokal dan siap beralih ke MySQL di server VPS.
-- Panduan lengkap instalasi ke VPS akan disediakan secara mendalam pada **Tahap 6**.
+## 🌐 Panduan Deploy ke Server VPS (Produksi)
+
+Aplikasi LEMAS sudah 100% siap untuk dipasang di server VPS Linux (Ubuntu 24.04 / 22.04 LTS) dengan basis data MySQL:
+- **Panduan Lengkap Bertahap**: Silakan baca dokumen panduan produksi di [DEPLOYMENT.md](DEPLOYMENT.md).
+- Dokumen tersebut mencakup:
+  1. Instalasi paket Nginx, PHP 8.4-FPM, dan MySQL Server.
+  2. Pembuatan database MySQL dan hak akses pengguna.
+  3. Konfigurasi virtual host Nginx untuk Laravel & Filament.
+  4. Pengaturan hak akses folder `storage` & `bootstrap/cache`.
+  5. Pemasangan sertifikat SSL gratis (HTTPS) dengan Certbot.
+  6. Skrip pencadangan otomatis (Backup Cron Job) setiap hari.
+  7. Panduan troubleshooting masalah umum pada VPS.

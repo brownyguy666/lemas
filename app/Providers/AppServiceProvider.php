@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Responses\LoginResponse;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(
             \Filament\Auth\Http\Responses\Contracts\LoginResponse::class,
-            \App\Http\Responses\LoginResponse::class
+            LoginResponse::class
         );
     }
 

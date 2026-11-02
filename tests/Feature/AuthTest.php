@@ -40,7 +40,7 @@ class AuthTest extends TestCase
         $admin = User::factory()->admin()->create();
         $this->actingAs($admin);
 
-        $response = (new LoginResponse())->toResponse(Request::create('/login', 'POST'));
+        $response = (new LoginResponse)->toResponse(Request::create('/login', 'POST'));
 
         $this->assertEquals(url('/admin'), $response->getTargetUrl());
     }
@@ -50,7 +50,7 @@ class AuthTest extends TestCase
         $guru = User::factory()->guru()->create();
         $this->actingAs($guru);
 
-        $response = (new LoginResponse())->toResponse(Request::create('/login', 'POST'));
+        $response = (new LoginResponse)->toResponse(Request::create('/login', 'POST'));
 
         $this->assertEquals(url('/guru'), $response->getTargetUrl());
     }
@@ -60,7 +60,7 @@ class AuthTest extends TestCase
         $murid = User::factory()->murid()->create();
         $this->actingAs($murid);
 
-        $response = (new LoginResponse())->toResponse(Request::create('/login', 'POST'));
+        $response = (new LoginResponse)->toResponse(Request::create('/login', 'POST'));
 
         $this->assertEquals(url('/murid'), $response->getTargetUrl());
     }
@@ -84,4 +84,3 @@ class AuthTest extends TestCase
         $this->assertFalse($murid->can('create', User::class));
     }
 }
-

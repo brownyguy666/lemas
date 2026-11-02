@@ -15,7 +15,9 @@ class Material extends Model
     use HasFactory;
 
     public const TYPE_TEXT = 'text';
+
     public const TYPE_FILE = 'file';
+
     public const TYPE_VIDEO = 'video';
 
     /**
@@ -26,8 +28,8 @@ class Material extends Model
     public static function getTypes(): array
     {
         return [
-            self::TYPE_TEXT  => 'Teks / Artikel',
-            self::TYPE_FILE  => 'Unggah Berkas (PDF/Dokumen)',
+            self::TYPE_TEXT => 'Teks / Artikel',
+            self::TYPE_FILE => 'Unggah Berkas (PDF/Dokumen)',
             self::TYPE_VIDEO => 'Tautan Video (YouTube)',
         ];
     }

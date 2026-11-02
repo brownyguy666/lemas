@@ -52,7 +52,7 @@ class ListClassrooms extends ListRecords
                         Notification::make()
                             ->warning()
                             ->title('Sudah Terdaftar')
-                            ->body('Anda sudah terdaftar di kelas ' . $classroom->name)
+                            ->body('Anda sudah terdaftar di kelas '.$classroom->name)
                             ->send();
 
                         return;
@@ -63,7 +63,7 @@ class ListClassrooms extends ListRecords
                     Notification::make()
                         ->success()
                         ->title('Berhasil Bergabung!')
-                        ->body('Selamat, Anda telah bergabung ke dalam kelas ' . $classroom->name)
+                        ->body('Selamat, Anda telah bergabung ke dalam kelas '.$classroom->name)
                         ->send();
                 }),
         ];

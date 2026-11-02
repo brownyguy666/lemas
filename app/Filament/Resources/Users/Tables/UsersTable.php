@@ -33,9 +33,9 @@ class UsersTable
                     ->formatStateUsing(fn (string $state): string => User::getRoles()[$state] ?? ucfirst($state))
                     ->color(fn (string $state): string => match ($state) {
                         User::ROLE_ADMIN => 'danger',
-                        User::ROLE_GURU  => 'success',
+                        User::ROLE_GURU => 'success',
                         User::ROLE_MURID => 'info',
-                        default          => 'gray',
+                        default => 'gray',
                     })
                     ->searchable()
                     ->sortable(),

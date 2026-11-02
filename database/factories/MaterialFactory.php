@@ -22,7 +22,7 @@ class MaterialFactory extends Factory
             'classroom_id' => Classroom::factory(),
             'title' => fake()->sentence(4),
             'type' => Material::TYPE_TEXT,
-            'content' => '<p>' . fake()->paragraphs(3, true) . '</p>',
+            'content' => '<p>'.fake()->paragraphs(3, true).'</p>',
             'order' => fake()->numberBetween(1, 10),
             'is_published' => true,
         ];

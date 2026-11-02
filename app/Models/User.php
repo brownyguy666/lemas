@@ -9,6 +9,8 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -20,7 +22,9 @@ class User extends Authenticatable implements FilamentUser
     use HasFactory, Notifiable;
 
     public const ROLE_ADMIN = 'admin';
+
     public const ROLE_GURU = 'guru';
+
     public const ROLE_MURID = 'murid';
 
     /**
@@ -85,7 +89,7 @@ class User extends Authenticatable implements FilamentUser
     {
         return match ($panel->getId()) {
             'admin' => $this->isAdmin(),
-            'guru'  => $this->isGuru(),
+            'guru' => $this->isGuru(),
             'murid' => $this->isMurid(),
             default => false,
         };
@@ -94,7 +98,7 @@ class User extends Authenticatable implements FilamentUser
     /**
      * Kelas-kelas yang diajar oleh guru ini.
      */
-    public function teachingClassrooms(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function teachingClassrooms(): HasMany
     {
         return $this->hasMany(Classroom::class, 'teacher_id');
     }
@@ -102,7 +106,7 @@ class User extends Authenticatable implements FilamentUser
     /**
      * Kelas-kelas yang diikuti oleh murid ini.
      */
-    public function enrolledClassrooms(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function enrolledClassrooms(): BelongsToMany
     {
         return $this->belongsToMany(Classroom::class, 'classroom_student', 'student_id', 'classroom_id')
             ->withTimestamps();
@@ -111,7 +115,7 @@ class User extends Authenticatable implements FilamentUser
     /**
      * Seluruh pengumpulan tugas yang dibuat oleh murid ini.
      */
-    public function submissions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function submissions(): HasMany
     {
         return $this->hasMany(Submission::class, 'student_id');
     }

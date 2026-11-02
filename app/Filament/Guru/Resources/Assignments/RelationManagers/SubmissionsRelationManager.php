@@ -51,7 +51,7 @@ class SubmissionsRelationManager extends RelationManager
                     ->badge()
                     ->formatStateUsing(fn (Submission $record): string => is_null($record->points)
                         ? 'Belum Dinilai'
-                        : ($record->points . ' / ' . $record->assignment->max_points)
+                        : ($record->points.' / '.$record->assignment->max_points)
                     )
                     ->color(fn (Submission $record): string => is_null($record->points) ? 'warning' : 'success')
                     ->sortable(),
@@ -68,7 +68,7 @@ class SubmissionsRelationManager extends RelationManager
                     ->label('Lihat Jawaban')
                     ->icon('heroicon-o-eye')
                     ->color('info')
-                    ->modalHeading(fn (Submission $record): string => 'Jawaban: ' . $record->student->name)
+                    ->modalHeading(fn (Submission $record): string => 'Jawaban: '.$record->student->name)
                     ->modalContent(fn (Submission $record) => view('filament.guru.submission-detail', ['submission' => $record]))
                     ->modalSubmitAction(false)
                     ->modalCancelActionLabel('Tutup'),
@@ -78,7 +78,7 @@ class SubmissionsRelationManager extends RelationManager
                     ->label('Beri Nilai')
                     ->icon('heroicon-o-check-badge')
                     ->color('success')
-                    ->modalHeading(fn (Submission $record): string => 'Beri Nilai: ' . $record->student->name)
+                    ->modalHeading(fn (Submission $record): string => 'Beri Nilai: '.$record->student->name)
                     ->fillForm(fn (Submission $record): array => [
                         'points' => $record->points,
                         'teacher_feedback' => $record->teacher_feedback,
@@ -86,7 +86,7 @@ class SubmissionsRelationManager extends RelationManager
                     ->form([
                         TextInput::make('points')
                             ->label('Nilai Angka')
-                            ->helperText(fn (Submission $record): string => 'Nilai maksimal tugas ini adalah ' . $record->assignment->max_points)
+                            ->helperText(fn (Submission $record): string => 'Nilai maksimal tugas ini adalah '.$record->assignment->max_points)
                             ->numeric()
                             ->required()
                             ->minValue(0)
@@ -107,7 +107,7 @@ class SubmissionsRelationManager extends RelationManager
                         Notification::make()
                             ->success()
                             ->title('Nilai Berhasil Disimpan!')
-                            ->body('Nilai untuk ' . $record->student->name . ' telah diperbarui.')
+                            ->body('Nilai untuk '.$record->student->name.' telah diperbarui.')
                             ->send();
                     }),
             ])

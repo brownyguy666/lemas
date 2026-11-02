@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Models\Assignment;
-use App\Models\Classroom;
 use App\Models\Submission;
 use App\Models\User;
 use Database\Seeders\DatabaseSeeder;

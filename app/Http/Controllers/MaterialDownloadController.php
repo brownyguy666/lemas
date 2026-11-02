@@ -34,4 +34,3 @@ class MaterialDownloadController extends Controller
         return $disk->download($material->file_path, $fileName);
     }
 }
-

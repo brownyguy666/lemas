@@ -29,7 +29,7 @@ class SubmissionDownloadController extends Controller
             abort(404, 'Berkas tidak ditemukan di server.');
         }
 
-        $fileName = $submission->file_name ?: ('Jawaban_' . ($submission->student->name ?? 'Murid') . '_' . basename($submission->file_path));
+        $fileName = $submission->file_name ?: ('Jawaban_'.($submission->student->name ?? 'Murid').'_'.basename($submission->file_path));
 
         return $disk->download($submission->file_path, $fileName);
     }
