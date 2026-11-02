@@ -9,6 +9,15 @@
         font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
+    /* Prevent SVG icon overflow */
+    .fi-logo svg, .fi-sidebar-header svg {
+        max-width: 24px !important;
+        max-height: 24px !important;
+    }
+    .fi-sidebar-header {
+        min-height: 3.5rem !important;
+    }
+
     /* Minimalist Futuristic Scrollbars */
     ::-webkit-scrollbar {
         width: 6px;
@@ -81,3 +90,4 @@
         transform: translateY(-2px);
     }
 </style>
+
