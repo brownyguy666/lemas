@@ -55,6 +55,14 @@ class Classroom extends Model
     }
 
     /**
+     * Materi pelajaran di kelas ini.
+     */
+    public function materials(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Material::class)->orderBy('order', 'asc');
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

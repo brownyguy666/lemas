@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Classroom;
+use App\Models\Material;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
      * - 2 Guru
      * - 10 Murid
      * - 3 Ruang Kelas Contoh
+     * - 3 Materi Pelajaran Contoh (Teks, Berkas, Video)
      */
     public function run(): void
     {
@@ -121,5 +123,40 @@ class DatabaseSeeder extends Seeder
         );
         $muridGroup2 = array_slice($muridUsers, 5, 5);
         $kelas3->students()->sync(array_column($muridGroup2, 'id'));
+
+        // 5. Data Materi Pembelajaran Contoh
+        // Materi 1 (Teks): Pengenalan Aljabar di Matematika 7A
+        Material::updateOrCreate(
+            ['classroom_id' => $kelas1->id, 'title' => 'Pengenalan Aljabar dan Variabel'],
+            [
+                'type' => Material::TYPE_TEXT,
+                'content' => '<h3>Pengertian Aljabar</h3><p>Aljabar adalah cabang matematika yang mempelajari simbol-simbol matematika dan aturan untuk memanipulasi simbol-simbol tersebut. Variabel biasanya dilambangkan dengan huruf kecil seperti <em>x</em> atau <em>y</em> untuk menyatakan suatu nilai yang belum diketahui.</p><p><strong>Contoh:</strong> 2x + 5 = 15, maka x = 5.</p>',
+                'order' => 1,
+                'is_published' => true,
+            ]
+        );
+
+        // Materi 2 (Video): Video Edukasi Operasi Bilangan di Matematika 7A
+        Material::updateOrCreate(
+            ['classroom_id' => $kelas1->id, 'title' => 'Video Pembelajaran: Trik Cepat Bilangan Bulat'],
+            [
+                'type' => Material::TYPE_VIDEO,
+                'link_url' => 'https://www.youtube.com/watch?v=kYJ_K0-zN9c',
+                'order' => 2,
+                'is_published' => true,
+            ]
+        );
+
+        // Materi 3 (Berkas): Modul PDF Ekosistem di IPA Terpadu 7A
+        Material::updateOrCreate(
+            ['classroom_id' => $kelas2->id, 'title' => 'Modul Belajar: Ekosistem dan Rantai Makanan'],
+            [
+                'type' => Material::TYPE_FILE,
+                'file_path' => 'materials/modul_ekosistem.pdf',
+                'file_name' => 'Modul_Ekosistem_Kelas_7.pdf',
+                'order' => 1,
+                'is_published' => true,
+            ]
+        );
     }
 }

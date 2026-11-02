@@ -72,6 +72,18 @@ Semua akun contoh di bawah ini menggunakan kata sandi seragam: **`password`**
 
 ---
 
+## 📚 Contoh Materi Pelajaran (Siap Dicoba)
+
+| Judul Materi | Tipe Materi | Kelas | Tindakan Murid |
+|---|---|---|---|
+| **Pengenalan Aljabar dan Variabel** | Teks / Bacaan | Matematika Kelas 7A | Klik **Baca Materi** (muncul jendela pop-up materi yang nyaman dibaca) |
+| **Video: Trik Cepat Bilangan Bulat** | Video YouTube | Matematika Kelas 7A | Klik **Tonton Video** (langsung membuka video di tab baru) |
+| **Modul Belajar: Ekosistem** | Berkas Dokumen (PDF) | IPA Terpadu Kelas 7A | Klik **Unduh Berkas** (mengunduh berkas secara aman) |
+
+> **Keamanan Berkas**: Seluruh berkas materi memiliki jalur unduhan aman dengan verifikasi hak akses. Murid di luar kelas tidak dapat mengunduh berkas kelas lain.
+
+---
+
 ## 🧪 Menjalankan Pengujian Otomatis (Automated Tests)
 Untuk memastikan seluruh fungsi dan rute aplikasi berjalan normal tanpa error:
 ```bash

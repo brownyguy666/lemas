@@ -96,3 +96,4 @@ class ClassroomTest extends TestCase
         $this->assertTrue($kelas7B->students()->where('student_id', $murid1->id)->exists());
     }
 }
+
