@@ -63,6 +63,14 @@ class Classroom extends Model
     }
 
     /**
+     * Tugas-tugas di kelas ini.
+     */
+    public function assignments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Assignment::class)->orderBy('due_date', 'asc');
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

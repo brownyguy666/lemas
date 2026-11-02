@@ -13,5 +13,8 @@ Route::get('/login', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/materials/{material}/download', \App\Http\Controllers\MaterialDownloadController::class)
         ->name('materials.download');
+
+    Route::get('/submissions/{submission}/download', \App\Http\Controllers\SubmissionDownloadController::class)
+        ->name('submissions.download');
 });
 

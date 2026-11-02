@@ -7,3 +7,4 @@
         {!! $material->content !!}
     </div>
 </div>
+

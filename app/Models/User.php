@@ -109,6 +109,14 @@ class User extends Authenticatable implements FilamentUser
     }
 
     /**
+     * Seluruh pengumpulan tugas yang dibuat oleh murid ini.
+     */
+    public function submissions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Submission::class, 'student_id');
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

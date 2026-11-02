@@ -84,6 +84,31 @@ Semua akun contoh di bawah ini menggunakan kata sandi seragam: **`password`**
 
 ---
 
+## 📝 Contoh Tugas & Pengumpulan (Siap Dicoba)
+
+Aplikasi memiliki fitur penugasan dan penilaian lengkap dengan deteksi keterlambatan otomatis dan privasi nilai:
+
+| Judul Tugas | Kelas | Tenggat Waktu | Nilai Maksimal | Status Contoh di Database |
+|---|---|---|---|---|
+| **Tugas 1: Menyelesaikan Persamaan Aljabar** | Matematika Kelas 7A (Pak Budi) | Besok 23:59 WIB | 100 | Ahmad Dahlan: Nilai 95/100 (Sudah Dinilai). Annisa: Sudah Mengumpulkan (Menunggu Nilai). |
+| **Laporan Pengamatan Rantai Makanan** | IPA Terpadu Kelas 7A (Bu Siti) | Kemarin 23:59 WIB | 100 | Ahmad Dahlan: Terlambat mengumpulkan (Badge merah "Terlambat"). |
+
+### 🔍 Cara Menguji Alur Tugas & Penilaian:
+1. **Sebagai Guru (Pak Budi / Bu Siti)**:
+   - Masuk ke [http://localhost:8000/guru](http://localhost:8000/guru) menggunakan akun `budi.guru@lemas.sch.id` (password: `password`).
+   - Buka menu **Tugas**. Klik **Ubah / Lihat** pada "Tugas 1: Menyelesaikan Persamaan Aljabar".
+   - Di bagian bawah, terdapat tabel **"Daftar Pengumpulan & Penilaian Murid"**.
+   - Klik aksi **"Nilai Murid"** untuk memberi nilai (0–100) dan umpan balik catatan guru.
+   - Klik **"Detail Jawaban"** untuk membaca jawaban teks atau mengunduh berkas tugas murid.
+2. **Sebagai Murid (Ahmad Dahlan / Annisa)**:
+   - Masuk ke [http://localhost:8000/murid](http://localhost:8000/murid) menggunakan akun `murid01@lemas.sch.id` atau `murid02@lemas.sch.id`.
+   - Buka menu **Tugas**.
+   - Klik **"Petunjuk Soal"** untuk membaca instruksi lengkap tugas dari guru.
+   - Klik **"Kumpulkan Tugas"** untuk mengirim jawaban teks atau mengunggah berkas pengerjaan (PDF, Word, Excel, Gambar hingga 10MB).
+   - Klik **"Lihat Nilai"** untuk melihat nilai angka dan catatan umpan balik yang diberikan guru secara privat. Murid lain tidak dapat melihat nilai ini!
+
+---
+
 ## 🧪 Menjalankan Pengujian Otomatis (Automated Tests)
 Untuk memastikan seluruh fungsi dan rute aplikasi berjalan normal tanpa error:
 ```bash
