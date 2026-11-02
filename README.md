@@ -39,7 +39,21 @@ Buka peramban (Google Chrome, Edge, dsb.) dan akses:
 - **Panel Guru**: [http://localhost:8000/guru](http://localhost:8000/guru)
 - **Panel Murid**: [http://localhost:8000/murid](http://localhost:8000/murid)
 
-*(Catatan: Pada Tahap 1, panel sudah terpasang dan siap. Di Tahap 2, akun contoh untuk Admin, Guru, dan Murid akan dibuat beserta penguncian hak aksesnya).*
+---
+
+## 👥 Akun Contoh untuk Pengujian (Seeder)
+Semua akun contoh di bawah ini menggunakan kata sandi seragam: **`password`**
+
+| Peran | Nama | Email | Panel Tujuan |
+|---|---|---|---|
+| **Admin** | Administrator LEMAS | `admin@lemas.sch.id` | `/admin` |
+| **Guru 1** | Budi Santoso, S.Pd. | `budi.guru@lemas.sch.id` | `/guru` |
+| **Guru 2** | Siti Rahmawati, M.Pd. | `siti.guru@lemas.sch.id` | `/guru` |
+| **Murid** | Ahmad Dahlan | `murid01@lemas.sch.id` | `/murid` |
+| **Murid** | Annisa Tri Utami | `murid02@lemas.sch.id` | `/murid` |
+| *(Murid 3–10)* | *(Bagas s/d Indah)* | `murid03@lemas.sch.id` s/d `murid10@lemas.sch.id` | `/murid` |
+
+> **Catatan Keamanan**: Setiap peran terkunci di panelnya masing-masing. Jika murid mencoba membuka `/admin` atau `/guru`, sistem akan langsung menolak dengan kode keamanan 403 (Dilarang Masuk).
 
 ---
 
