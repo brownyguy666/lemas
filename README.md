@@ -57,6 +57,21 @@ Semua akun contoh di bawah ini menggunakan kata sandi seragam: **`password`**
 
 ---
 
+## 🏫 Ruang Kelas Contoh (Tersedia untuk Dicoba)
+
+| Nama Kelas | Guru Pengampu | Kode Gabung | Murid Terdaftar |
+|---|---|---|---|
+| **Matematika Kelas 7A** | Budi Santoso, S.Pd. | `MTK7A1` | Murid 01 s/d 05 |
+| **IPA Terpadu Kelas 7A** | Siti Rahmawati, M.Pd. | `IPA7A1` | Murid 01 s/d 05 |
+| **Matematika Kelas 7B** | Budi Santoso, S.Pd. | `MTK7B1` | Murid 06 s/d 10 |
+
+> **Uji Coba Gabung Kelas**:
+> - Login sebagai `murid01@lemas.sch.id`. Anda otomatis melihat *Matematika 7A* dan *IPA Terpadu 7A*.
+> - Klik tombol **"Gabung Kelas dengan Kode"**, lalu masukkan kode `MTK7B1`.
+> - Anda akan langsung terdaftar ke kelas *Matematika 7B*!
+
+---
+
 ## 🧪 Menjalankan Pengujian Otomatis (Automated Tests)
 Untuk memastikan seluruh fungsi dan rute aplikasi berjalan normal tanpa error:
 ```bash

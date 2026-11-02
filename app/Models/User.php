@@ -92,6 +92,23 @@ class User extends Authenticatable implements FilamentUser
     }
 
     /**
+     * Kelas-kelas yang diajar oleh guru ini.
+     */
+    public function teachingClassrooms(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Classroom::class, 'teacher_id');
+    }
+
+    /**
+     * Kelas-kelas yang diikuti oleh murid ini.
+     */
+    public function enrolledClassrooms(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Classroom::class, 'classroom_student', 'student_id', 'classroom_id')
+            ->withTimestamps();
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

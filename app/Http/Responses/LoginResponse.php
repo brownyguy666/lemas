@@ -34,3 +34,4 @@ class LoginResponse implements Responsable
         return redirect()->intended('/');
     }
 }
+

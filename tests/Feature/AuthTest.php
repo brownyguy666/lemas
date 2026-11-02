@@ -84,3 +84,4 @@ class AuthTest extends TestCase
         $this->assertFalse($murid->can('create', User::class));
     }
 }
+

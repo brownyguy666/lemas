@@ -33,3 +33,4 @@ class Login extends BaseLogin
         return method_exists($user, 'hasValidRole') && $user->hasValidRole();
     }
 }
+
