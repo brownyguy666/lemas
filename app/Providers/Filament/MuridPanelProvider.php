@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Murid\Widgets\MuridStatsOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -10,8 +11,8 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -27,9 +28,21 @@ class MuridPanelProvider extends PanelProvider
             ->id('murid')
             ->path('murid')
             ->brandName('LEMAS - Ruang Murid')
+            ->brandLogo(fn () => view('filament.components.brand-logo', [
+                'role' => 'MURID',
+                'badgeColor' => 'cyan',
+            ]))
+            ->brandLogoHeight('2.25rem')
+            ->font('Plus Jakarta Sans')
+            ->darkMode(true)
             ->colors([
-                'primary' => Color::Sky,
+                'primary' => Color::Cyan,
+                'gray' => Color::Slate,
             ])
+            ->renderHook(
+                PanelsRenderHook::HEAD_END,
+                fn () => view('filament.components.custom-styles'),
+            )
             ->discoverResources(in: app_path('Filament/Murid/Resources'), for: 'App\Filament\Murid\Resources')
             ->discoverPages(in: app_path('Filament/Murid/Pages'), for: 'App\Filament\Murid\Pages')
             ->pages([
@@ -37,8 +50,8 @@ class MuridPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Murid/Widgets'), for: 'App\Filament\Murid\Widgets')
             ->widgets([
+                MuridStatsOverview::class,
                 AccountWidget::class,
-                FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
